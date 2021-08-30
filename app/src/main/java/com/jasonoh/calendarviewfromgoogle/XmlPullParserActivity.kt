@@ -38,11 +38,28 @@ class XmlPullParserActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnXmlAnimalCity.setOnClickListener {
-            Toast.makeText(this@XmlPullParserActivity, "button click", Toast.LENGTH_SHORT).show()
+            animalDatas.clear()
+
+            animalDataAdapter = AnimalDataFromCityAdapter(
+                animalDatas,
+                this@XmlPullParserActivity
+            )
+            binding.recyclerAnimal.adapter = animalDataAdapter
+            animalDataAdapter.notifyDataSetChanged()
+
             loadAnimalDataSido()
         }
 
         binding.btnXmlAnimalFull.setOnClickListener {
+            animalDatasFull.clear()
+
+            animalDataFullAdapter = AnimalDataFromFullAdapter(
+                animalDatasFull,
+                this@XmlPullParserActivity
+            )
+            binding.recyclerAnimal.adapter = animalDataFullAdapter
+            animalDataFullAdapter.notifyDataSetChanged()
+
             loadAnimalDataFull()
         }
 
@@ -53,12 +70,7 @@ class XmlPullParserActivity : AppCompatActivity() {
 //        binding.recyclerAnimal.adapter = animalDataAdapter
 //        animalDataAdapter.notifyDataSetChanged()
 
-        animalDataFullAdapter = AnimalDataFromFullAdapter(
-            animalDatasFull,
-            this@XmlPullParserActivity
-        )
-        binding.recyclerAnimal.adapter = animalDataFullAdapter
-        animalDataFullAdapter.notifyDataSetChanged()
+
 
 
     }
@@ -134,12 +146,6 @@ class XmlPullParserActivity : AppCompatActivity() {
                     this@XmlPullParserActivity.runOnUiThread(Runnable {
                         Toast.makeText(this@XmlPullParserActivity, "검색종료", Toast.LENGTH_SHORT).show()
 
-                        animalDataAdapter = AnimalDataFromCityAdapter(
-                            animalDatas,
-                            this@XmlPullParserActivity
-                        )
-                        binding.recyclerAnimal.adapter = animalDataAdapter
-//                        animalDataAdapter.notifyDataSetChanged()
                         animalDataAdapter.notifyItemRangeInserted((page-1)*10, 10)
 
                         Log.w("TAG", "animal size: ${animalDatas.size}")
@@ -381,7 +387,8 @@ class XmlPullParserActivity : AppCompatActivity() {
         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
             super.onScrolled(recyclerView, dx, dy)
 
-            val firstVisibleItemPosition = (recyclerView.layoutManager as LinearLayoutManager?)!!.findFirstCompletelyVisibleItemPosition() // 화면에 보이는 마지막 아이템의 position
+//          todo ::  findLastCompletelyVisibleItemPosition() -> 화면에 전부 보여야 해당 아이템 인덱스를 가져옴
+            val firstVisibleItemPosition = (recyclerView.layoutManager as LinearLayoutManager?)!!.findFirstCompletelyVisibleItemPosition() // 화면에 보이는 첫번째 아이템의 position
             val lastVisibleItemPosition = (recyclerView.layoutManager as LinearLayoutManager?)!!.findLastCompletelyVisibleItemPosition() // 화면에 보이는 마지막 아이템의 position
             val itemTotalCount = recyclerView.adapter!!.itemCount - 1 // 어댑터에 등록된 아이템의 총 개수 -1
 
@@ -398,8 +405,8 @@ class XmlPullParserActivity : AppCompatActivity() {
 //                animalDataAdapter.notifyItemInserted(itemTotalCount+1)
                 Log.e("TAG", "XmlPullParserActivity_onScrolled: 끝에 도달", )
                 ++page
-                loadAnimalDataFull()
-//                loadAnimalDataSido()
+                if(recyclerView.adapter!!.javaClass.equals(AnimalDataFromFullAdapter::class.java)) loadAnimalDataFull()
+                else if(recyclerView.adapter!!.javaClass.equals(AnimalDataFromCityAdapter::class.java))loadAnimalDataSido()
             }
         }
     }

@@ -16,7 +16,7 @@
         <ImageView
             android:id="@+id/iv_animal_full_popfile"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:src="@drawable/ic_launcher_foreground"
             android:layout_weight="2"
             android:layout_gravity="center"/>
