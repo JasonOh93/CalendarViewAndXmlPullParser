@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp"
+    android:layout_marginBottom="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        android:padding="16dp">
+        <ImageView
+            android:id="@+id/iv_animal_full_popfile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_launcher_foreground"
+            android:layout_weight="2"
+            android:layout_gravity="center"/>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3">
+
+            <TextView
+                android:id="@+id/tv_animal_full_age_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="age : "
+                android:textSize="20sp"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/tv_animal_full_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="age"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_toEndOf="@id/tv_animal_full_age_title"/>
+
+            <TextView
+                android:id="@+id/tv_animal_full_care_addr_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="careAddr : "
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_age"/>
+            <TextView
+                android:id="@+id/tv_animal_full_care_addr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="careAddr"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_age"
+                android:layout_toEndOf="@id/tv_animal_full_care_addr_title"/>
+
+            <TextView
+                android:id="@+id/tv_animal_full_care_nm_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="careNm : "
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_care_addr"/>
+            <TextView
+                android:id="@+id/tv_animal_full_care_nm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="careNm"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_care_addr"
+                android:layout_toEndOf="@id/tv_animal_full_care_nm_title"/>
+
+            <TextView
+                android:id="@+id/tv_animal_full_care_tel_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="careTel : "
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_care_nm"/>
+            <TextView
+                android:id="@+id/tv_animal_full_care_tel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="careTel"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_care_nm"
+                android:layout_toEndOf="@id/tv_animal_full_care_tel_title"/>
+
+            <TextView
+                android:id="@+id/tv_animal_full_charge_nm_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="chargeNm : "
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_care_tel"/>
+            <TextView
+                android:id="@+id/tv_animal_full_charge_nm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="chargeNm"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_care_tel"
+                android:layout_toEndOf="@id/tv_animal_full_charge_nm_title"/>
+
+            <TextView
+                android:id="@+id/tv_animal_full_color_cd_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="colorCd : "
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_charge_nm"/>
+            <TextView
+                android:id="@+id/tv_animal_full_color_cd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="colorCd"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_charge_nm"
+                android:layout_toEndOf="@id/tv_animal_full_color_cd_title"/>
+
+            <TextView
+                android:id="@+id/tv_animal_full_desertion_no_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="desertionNo : "
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_color_cd"/>
+            <TextView
+                android:id="@+id/tv_animal_full_desertion_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="desertionNo"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_color_cd"
+                android:layout_toEndOf="@id/tv_animal_full_desertion_no_title"/>
+
+            <TextView
+                android:id="@+id/tv_animal_full_file_name_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="filename : "
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_desertion_no"/>
+            <TextView
+                android:id="@+id/tv_animal_full_file_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="filename"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_desertion_no"
+                android:layout_toEndOf="@id/tv_animal_full_file_name_title"/>
+
+            <TextView
+                android:id="@+id/tv_animal_full_happen_dt_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="happenDt : "
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_file_name"/>
+            <TextView
+                android:id="@+id/tv_animal_full_happen_dt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="happenDt"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_file_name"
+                android:layout_toEndOf="@id/tv_animal_full_happen_dt_title"/>
+
+            <TextView
+                android:id="@+id/tv_animal_full_happen_place_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="happenPlace : "
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_happen_dt"/>
+            <TextView
+                android:id="@+id/tv_animal_full_happen_place"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="happenPlace"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_happen_dt"
+                android:layout_toEndOf="@id/tv_animal_full_happen_place_title"/>
+
+            <TextView
+                android:id="@+id/tv_animal_full_kind_cd_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="kindCd : "
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_happen_place" />
+            <TextView
+                android:id="@+id/tv_animal_full_kind_cd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="kindCd"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_happen_place"
+                android:layout_toEndOf="@id/tv_animal_full_kind_cd_title"/>
+
+            <TextView
+                android:id="@+id/tv_animal_full_neuter_yn_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="neuterYn : "
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_kind_cd"/>
+            <TextView
+                android:id="@+id/tv_animal_full_neuter_yn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="neuterYn"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_kind_cd"
+                android:layout_toEndOf="@id/tv_animal_full_neuter_yn_title"/>
+
+            <TextView
+                android:id="@+id/tv_animal_full_notice_edt_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="noticeEdt : "
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_neuter_yn"/>
+            <TextView
+                android:id="@+id/tv_animal_full_notice_edt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="noticeEdt"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_neuter_yn"
+                android:layout_toEndOf="@id/tv_animal_full_notice_edt_title"/>
+
+            <TextView
+                android:id="@+id/tv_animal_full_notice_no_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="noticeNo : "
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_notice_edt"/>
+            <TextView
+                android:id="@+id/tv_animal_full_notice_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="noticeNo"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_notice_edt"
+                android:layout_toEndOf="@id/tv_animal_full_notice_no_title"/>
+
+            <TextView
+                android:id="@+id/tv_animal_full_notice_sdt_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="noticeSdt : "
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_notice_no"/>
+            <TextView
+                android:id="@+id/tv_animal_full_notice_sdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="noticeSdt"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_notice_no"
+                android:layout_toEndOf="@id/tv_animal_full_notice_sdt_title"/>
+
+            <TextView
+                android:id="@+id/tv_animal_full_office_tel_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="officetel : "
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_notice_sdt"/>
+            <TextView
+                android:id="@+id/tv_animal_full_office_tel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="officetel"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_notice_sdt"
+                android:layout_toEndOf="@id/tv_animal_full_office_tel_title"/>
+
+            <TextView
+                android:id="@+id/tv_animal_full_org_nm_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="orgNm : "
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_office_tel"/>
+            <TextView
+                android:id="@+id/tv_animal_full_org_nm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="orgNm"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_office_tel"
+                android:layout_toEndOf="@id/tv_animal_full_org_nm_title"/>
+
+            <TextView
+                android:id="@+id/tv_animal_full_process_state_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="processState : "
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_org_nm"/>
+            <TextView
+                android:id="@+id/tv_animal_full_process_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="processState"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_org_nm"
+                android:layout_toEndOf="@id/tv_animal_full_process_state_title"/>
+
+            <TextView
+                android:id="@+id/tv_animal_full_sex_Cd_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="sexCd : "
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_process_state"/>
+            <TextView
+                android:id="@+id/tv_animal_full_sex_Cd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="sexCd"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_process_state"
+                android:layout_toEndOf="@id/tv_animal_full_sex_Cd_title"/>
+
+            <TextView
+                android:id="@+id/tv_animal_full_special_mark_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="specialMark : "
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_sex_Cd"/>
+            <TextView
+                android:id="@+id/tv_animal_full_special_mark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="specialMark"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_sex_Cd"
+                android:layout_toEndOf="@id/tv_animal_full_special_mark_title"/>
+
+            <TextView
+                android:id="@+id/tv_animal_full_weight_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="weight : "
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_special_mark"/>
+            <TextView
+                android:id="@+id/tv_animal_full_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="weight"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_below="@id/tv_animal_full_special_mark"
+                android:layout_toEndOf="@id/tv_animal_full_weight_title"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>

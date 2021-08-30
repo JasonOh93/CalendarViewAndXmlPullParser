@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="날짜가 나오는 곳"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:gravity="center"/>
+
+            <DatePicker
+                android:id="@+id/dk_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="확인"
+                android:onClick="clickBtn"/>
+
+            <SurfaceView
+                android:id="@+id/sv_record_view"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"/>
+
+            <Button
+                android:id="@+id/btn_record"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="녹화 시작"/>
+
+            <Button
+                android:id="@+id/btn_camera_app"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="카메라로 동영상 녹화"/>
+
+            <Button
+                android:id="@+id/btn_xml_pull_parser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="동물관련 XML PULL PARSER로 연결"
+                android:onClick="clickBtn"/>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+</LinearLayout>
