@@ -1,6 +1,6 @@
 package com.jasonoh.calendarviewfromgoogle.models
 
-data class AnimalData(var cityName: String = "Seoul", var cityCode: String = "000010", var aaa: String = "000010") {
+data class AnimalData(var cityName: String = "Seoul", var cityCode: String = "000010") {
 }
 
 data class AnimalDataFromCity(var cityName: String = "Seoul", var cityCode: String = "000010")
