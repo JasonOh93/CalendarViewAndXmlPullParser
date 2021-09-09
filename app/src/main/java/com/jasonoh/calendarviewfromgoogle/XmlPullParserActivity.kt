@@ -31,6 +31,7 @@ class XmlPullParserActivity : AppCompatActivity() {
     lateinit var animalDataFullAdapter: AnimalDataFromFullAdapter
 
     private var page = 1
+    private var loadingBoolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +40,8 @@ class XmlPullParserActivity : AppCompatActivity() {
 
         binding.btnXmlAnimalCity.setOnClickListener {
             animalDatas.clear()
-
+            page = 1
+            loadingBoolean = false
             animalDataAdapter = AnimalDataFromCityAdapter(
                 animalDatas,
                 this@XmlPullParserActivity
@@ -52,7 +54,8 @@ class XmlPullParserActivity : AppCompatActivity() {
 
         binding.btnXmlAnimalFull.setOnClickListener {
             animalDatasFull.clear()
-
+            page = 1
+            loadingBoolean = false
             animalDataFullAdapter = AnimalDataFromFullAdapter(
                 animalDatasFull,
                 this@XmlPullParserActivity
@@ -80,9 +83,12 @@ class XmlPullParserActivity : AppCompatActivity() {
             override fun run() {
                 super.run()
 
-                var dataAnimalAddress: String =
+                val dataAnimalAddress: String =
                     "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/sido" +
-                            "?serviceKey=" + "6dqyQeM6Z1N4y9BZCEBwdt00gqLY6XZhny6jJs3ljEWE2NypmtrGJHRNkfgA%2FvtgZlWdqYCjoFGnPu3oKSTi0g%3D%3D"
+                            "?serviceKey=" +
+                            "6dqyQeM6Z1N4y9BZCEBwdt00gqLY6XZhny6jJs3ljEWE2NypmtrGJHRNkfgA%2FvtgZlWdqYCjoFGnPu3oKSTi0g%3D%3D" +
+                            "&pageNo=" + page +
+                            "&numOfRows=" + "10"
 
                 try {
 //                    animalDatas.clear()
@@ -94,6 +100,8 @@ class XmlPullParserActivity : AppCompatActivity() {
                     xpp.setInput(isr)
 
                     var eventType = xpp.eventType
+
+                    Log.e("TAG", "XmlPullParserActivity_run: ${eventType}", )
 
                     var stringBuffer = StringBuffer()
 
@@ -144,7 +152,9 @@ class XmlPullParserActivity : AppCompatActivity() {
                     } //while
 
                     this@XmlPullParserActivity.runOnUiThread(Runnable {
-                        Toast.makeText(this@XmlPullParserActivity, "검색종료", Toast.LENGTH_SHORT).show()
+                        if(cityName.equals("")) loadingBoolean = false
+                        else loadingBoolean = true
+                        Toast.makeText(this@XmlPullParserActivity, "검색종료 :: $cityName  :: $loadingBoolean", Toast.LENGTH_SHORT).show()
 
                         animalDataAdapter.notifyItemRangeInserted((page-1)*10, 10)
 
@@ -362,7 +372,9 @@ class XmlPullParserActivity : AppCompatActivity() {
                     } //while
 
                     this@XmlPullParserActivity.runOnUiThread(Runnable {
-                        Toast.makeText(this@XmlPullParserActivity, "검색종료", Toast.LENGTH_SHORT).show()
+                        if(age.equals("")) loadingBoolean = false
+                        else loadingBoolean = true
+                        Toast.makeText(this@XmlPullParserActivity, "검색종료 :: $age", Toast.LENGTH_SHORT).show()
 
                         animalDataFullAdapter.notifyItemRangeInserted((page-1)*10, 10)
 
@@ -405,8 +417,8 @@ class XmlPullParserActivity : AppCompatActivity() {
 //                animalDataAdapter.notifyItemInserted(itemTotalCount+1)
                 Log.e("TAG", "XmlPullParserActivity_onScrolled: 끝에 도달", )
                 ++page
-                if(recyclerView.adapter!!.javaClass.equals(AnimalDataFromFullAdapter::class.java)) loadAnimalDataFull()
-                else if(recyclerView.adapter!!.javaClass.equals(AnimalDataFromCityAdapter::class.java))loadAnimalDataSido()
+                if(recyclerView.adapter!!.javaClass.equals(AnimalDataFromFullAdapter::class.java) && loadingBoolean) loadAnimalDataFull()
+                else if(recyclerView.adapter!!.javaClass.equals(AnimalDataFromCityAdapter::class.java) && loadingBoolean) loadAnimalDataSido()
             }
         }
     }
