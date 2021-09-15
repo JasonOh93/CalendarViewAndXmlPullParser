@@ -1,5 +1,6 @@
 package com.jasonoh.calendarviewfromgoogle
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -18,7 +19,8 @@ import java.io.InputStream
 import java.io.InputStreamReader
 import java.lang.Exception
 import java.net.URL
-import java.util.ArrayList
+import java.text.SimpleDateFormat
+import java.util.*
 
 class XmlPullParserActivity : AppCompatActivity() {
 
@@ -177,13 +179,23 @@ class XmlPullParserActivity : AppCompatActivity() {
 
     fun loadAnimalDataFull(){
         object : Thread() {
+            @SuppressLint("SimpleDateFormat")
             override fun run() {
                 super.run()
 
+                val cal = Calendar.getInstance()
+                cal.time = Date()
+                val dateFormat = SimpleDateFormat("yyyyMMdd")
+                dateFormat.format(cal.time)
+                val nowDate: String = dateFormat.format(cal.time)
+                cal.add(Calendar.DATE, -7)
+                val aWeekAgoDate: String = dateFormat.format(cal.time)
+                Log.e("TAG", "XmlPullParserActivity_run: afdfasfdasdfasd    ${dateFormat.format(cal.time)}", )
+
                 val dataAnimalAddressFull: String =
                     "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic" +
-                            "?bgnde=" + "20210301" +
-                            "&endde=" + "20210430" +
+                            "?bgnde=" + aWeekAgoDate +
+                            "&endde=" + nowDate +
                             "&pageNo=" + page +
                             "&numOfRows=" + "10" +
                             "&state=" + "protect" +
