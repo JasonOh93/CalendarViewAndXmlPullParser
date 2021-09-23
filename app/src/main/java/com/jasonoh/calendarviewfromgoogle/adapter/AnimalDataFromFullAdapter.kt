@@ -51,6 +51,7 @@ class AnimalDataFromFullAdapter(var animalDatas: ArrayList<AnimalDataFull>, val 
                     .inflate(R.layout.item_animal_full, parent, false)
             )
         }
+
 //        return ViewHolder(
 //            LayoutInflater.from(context).inflate(R.layout.item_animal_full, parent, false)
 //        )
