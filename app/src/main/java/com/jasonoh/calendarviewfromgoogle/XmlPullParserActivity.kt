@@ -158,6 +158,7 @@ class XmlPullParserActivity : AppCompatActivity() {
                         else loadingBoolean = true
                         Toast.makeText(this@XmlPullParserActivity, "검색종료 :: $cityName  :: $loadingBoolean", Toast.LENGTH_SHORT).show()
 
+//                        animalDataAdapter.notifyItemRangeInserted((page-1)*10, 10)
                         animalDataAdapter.notifyItemRangeInserted((page-1)*10, 10)
 
                         Log.w("TAG", "animal size: ${animalDatas.size}")
@@ -187,11 +188,12 @@ class XmlPullParserActivity : AppCompatActivity() {
                 cal.time = Date()
                 val dateFormat = SimpleDateFormat("yyyyMMdd")
                 dateFormat.format(cal.time)
+//                cal.add(Calendar.DATE, -1)
                 val nowDate: String = dateFormat.format(cal.time)
 //                일주일 단위로 검색이 안됨.. 이유가 뭘까???
 //                8일 단위로는 검색이 된다..(오늘 날짜로 했을경우에만)
 //                7일 단위는 하루 전날짜로 시도시 가능하다.
-                cal.add(Calendar.DATE, -7)
+                cal.add(Calendar.DATE, -20)
                 val aWeekAgoDate: String = dateFormat.format(cal.time)
                 Log.e("TAG", "XmlPullParserActivity_run: afdfasfdasdfasd    ${aWeekAgoDate}  ${nowDate}", )
 
