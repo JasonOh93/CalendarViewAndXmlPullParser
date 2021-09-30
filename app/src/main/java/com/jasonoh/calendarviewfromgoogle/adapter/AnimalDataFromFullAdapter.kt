@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.ToggleButton
+import androidx.core.graphics.drawable.toDrawable
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -157,6 +158,12 @@ class AnimalDataFromFullAdapter(var animalDatas: ArrayList<AnimalDataFull>, val 
         var sexCd: TextView = itemView.findViewById(R.id.tv_animal_full_sex_Cd)
         var specialMark: TextView = itemView.findViewById(R.id.tv_animal_full_special_mark)
         var weight: TextView = itemView.findViewById(R.id.tv_animal_full_weight)
+
+        init {
+            itemView.setOnClickListener {
+                itemView.background = R.color.black.toDrawable()
+            }
+        }
     }
 
 }

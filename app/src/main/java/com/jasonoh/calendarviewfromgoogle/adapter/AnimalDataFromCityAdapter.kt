@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.ToggleButton
+import androidx.core.graphics.drawable.toDrawable
 import androidx.recyclerview.widget.RecyclerView
 import com.jasonoh.calendarviewfromgoogle.R
 import com.jasonoh.calendarviewfromgoogle.models.AnimalData
@@ -39,5 +40,11 @@ class AnimalDataFromCityAdapter(var animalDatas: ArrayList<AnimalDataFromCity>, 
 
         var animalCity: TextView = itemView.findViewById(R.id.tv_animal_sido_city)
         var animalCode: TextView = itemView.findViewById(R.id.tv_animal_sido_code)
+
+        init {
+            itemView.setOnClickListener {
+                itemView.background = R.color.black.toDrawable()
+            }
+        }
     }
 }

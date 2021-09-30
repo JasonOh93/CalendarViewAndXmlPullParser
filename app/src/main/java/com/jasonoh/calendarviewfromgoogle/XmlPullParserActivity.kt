@@ -197,6 +197,8 @@ class XmlPullParserActivity : AppCompatActivity() {
                 val aWeekAgoDate: String = dateFormat.format(cal.time)
                 Log.e("TAG", "XmlPullParserActivity_run: afdfasfdasdfasd    ${aWeekAgoDate}  ${nowDate}", )
 
+//                http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?bgnde=20210913&endde=20210921&pageNo=1&numOfRows=10&state=protect&serviceKey=6dqyQeM6Z1N4y9BZCEBwdt00gqLY6XZhny6jJs3ljEWE2NypmtrGJHRNkfgA%2FvtgZlWdqYCjoFGnPu3oKSTi0g%3D%3D
+
                 val dataAnimalAddressFull: String =
                     "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic" +
                             "?bgnde=" + aWeekAgoDate +
